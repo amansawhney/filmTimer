@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.1'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -12,18 +12,11 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-# Use Nokogiri and mechanize for webscraping
-gem 'nokogiri'
-gem 'mechanize'
-
-#Debugging tools
-gem 'pry-rails'
-gem 'pry-byebug'
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
@@ -37,5 +30,24 @@ group :development do
   gem 'rb-readline'
 end
 
+
+group :test do
+  gem 'shoulda-matchers', require: false
+  gem 'database_cleaner'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#### CUSTOM GEMS ####
+# General
+gem 'foreman'
+# Use Nokogiri and mechanize for webscraping
+gem 'nokogiri'
+gem 'mechanize'
+# Debugging tools
+gem 'pry-rails'
+gem 'pry-byebug'
+# Webpacker Gem
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'

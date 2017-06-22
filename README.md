@@ -15,5 +15,13 @@ rake db:setup
 rake db:migrate
 rake db:seed
 ```
+
+* To RUN IT
+```ruby 
+foreman start
+```
+
+
 * ...
 # filmTimer
+
