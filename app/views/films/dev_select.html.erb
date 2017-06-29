@@ -1,0 +1,15 @@
+<%= form_tag("/iso_select", method: "post") do %>
+    <select name="dev">
+      <% array_of_shit = [] %>
+      <%= @films.each do |f| %>
+          <% if !array_of_shit.include?(f.developer) %>
+              <% array_of_shit.push(f.developer)%>
+              <option><%= f.developer %> </option>
+          <% end %>
+      <% end %>
+    </select>
+    <br>
+    <%= hidden_field_tag(:name, @films.first.name) %>
+    <%= submit_tag('name') %>
+<% end %>
+

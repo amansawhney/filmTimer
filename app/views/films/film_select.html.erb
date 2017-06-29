@@ -1,0 +1,14 @@
+<%= form_tag("/dev_select", method: "post") do %>
+  <select name="name">
+    <% array_of_shit = [] %>
+    <%= @films.each do |f| %>
+        <% if !array_of_shit.include?(f.name) %>
+          <% array_of_shit.push(f.name)%>
+          <option><%= f.name %> </option>
+        <% end %>
+    <% end %>
+    </select>
+  <br>
+    <%= submit_tag("dev_select") %>
+<% end %>
+

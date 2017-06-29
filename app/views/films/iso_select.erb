@@ -1,0 +1,18 @@
+<%= form_tag("/index", method: "post") do %>
+    <select name="iso">
+      <% array_of_shit = [] %>
+      <%= @films.each do |f| %>
+          <% if !array_of_shit.include?(f.iso.to_s) %>
+              <% array_of_shit.push(f.iso.to_s)%>
+              <option><%= f.iso.to_s %> </option>
+              <% puts f.iso.to_s %>
+              <% puts f.to_s %>
+          <% end %>
+      <% end %>
+    </select>
+    <%= hidden_field_tag(:name, @films.first.name) %>
+    <%= hidden_field_tag(:dev, @films.first.developer) %>
+    <br>
+    <%= submit_tag("Submit") %>
+<% end %>
+
