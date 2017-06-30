@@ -1,6 +1,32 @@
 <div id="countdown"></div>
 
+
+
 <script>
+    var stepVar = 1.0;
+    function runTimer() {
+        if (stepVar == 1) {
+            stepVar += 1;
+
+            countdown("countdown", <%= @film.first.time%>, 0);
+        } else if (stepVar == 2) {
+            stepVar += 1;
+
+            countdown("countdown", 1, 0);
+        } else if (stepVar == 3) {
+            stepVar += 1;
+
+            countdown("countdown", 8, 0);
+        } else if (stepVar == 4) {
+            stepVar += 1;
+
+            countdown("countdown", 10, 0);
+        } else if (stepVar == 5) {
+            stepVar += 1;
+
+            countdown("countdown", 1, 0);
+        }
+    }
     function countdown( elementName, minutes, seconds )
     {
         var element, endTime, hours, mins, msLeft, time;
@@ -15,6 +41,7 @@
             msLeft = endTime - (+new Date);
             if ( msLeft < 1000 ) {
                 element.innerHTML = "countdown's over!";
+                runTimer()
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
@@ -29,5 +56,7 @@
         updateTimer();
     }
 
-    countdown( "countdown", <%= @films.first.time %>, 0 );
+    runTimer()
+
+
 </script>
