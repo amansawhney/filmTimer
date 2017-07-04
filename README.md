@@ -11,12 +11,24 @@ This is a simple application made to help me develop film.  It esentially uses t
 
 
 ## What I Delivered
-<ul>
-<li> A database that utilizes web scraping to rebuilt itself.
-<li> Views that affect one another
-<li> A UI based on google's material design
-<li> An algorithm to alert the user when to agitate film
-</ul>
+
+* A database that utilizes web scraping to rebuilt itself.
+* Views that affect one another
+* A UI based on google's material design
+* An algorithm to alert the user when to agitate film
+
+## Project Details
+
+* Tasks: Web Scraping, Ruby on Rails, Database Creation, Database Querying, UX/UI
+* Client: Myself
+
+## App Summary
+
+The Massive Dev Chart is the world's largest film development chart. It contains development times for most (over 18,000) combinations of black and white films and developers.
+
+This Web Application makes the use of that chart far easier by providing a basic UI to the chart. It not only provides the user with the time for development but also alerts them when to agitate, and the timings for each chemical.
+
+
 Ruby version: 2.2.3p173
 
 ### Database creation
@@ -35,6 +47,6 @@ rake db:seed
 rails s
 ```
 
-
 * ...
+
 
