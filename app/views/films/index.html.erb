@@ -5,6 +5,10 @@
         <div class="card animated fadeInUp">
           <h1 id="title" class="animated bounceIn"></h1>
           <h1 id="countdown"></h1>
+          <audio id="audio">
+            <source src="https://freesound.org/data/previews/219/219269_170215-lq.mp3" type="audio/mp3">
+            Your browser does not support HTML5 audio.
+          </audio>
         </div>
       </div>
     </div>
@@ -54,6 +58,8 @@
     {
         var element, endTime, hours, mins, msLeft, time, agiatationTime;
         agiatationTime = 15;
+        var audio = document.getElementById("audio");
+
 
 
         function twoDigits( n )
@@ -69,14 +75,17 @@
 
                     element.style.color = "Red";
                     agiatationTime -= 1;
+                    audio.play();
                     console.log(agiatationTime );
                     if (agiatationTime == 0) {
                         agiatationTime -= 30;
+
                     }
                 }
                 else {
                     console.log(agiatationTime );
                     element.style.color = "Black";
+                    audio.pause()
                     agiatationTime+= 1;
                     if (agiatationTime == 0) {
                         agiatationTime += 30;
@@ -84,9 +93,11 @@
                 }
             } else if(stepVar == 3) {
                 element.style.color = "Red";
+                audio.play();
                 agiatationTime = 15
             } else {
                 element.style.color = "Black";
+                audio.pause()
                 agiatationTime = 15
             }
 
