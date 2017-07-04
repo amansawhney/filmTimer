@@ -1,4 +1,5 @@
 <%= form_tag("/dev_select", method: "post") do %>
+    <h1>Select A Film</h1>
   <select name="name">
     <% array_of_shit = [] %>
     <%= @films.each do |f| %>

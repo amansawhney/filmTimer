@@ -16,7 +16,7 @@ page.css('td a').each do |link|
   page = Nokogiri::HTML(newSource)
   page.search("tr").each do |film|
     tds  = film.xpath('td[1]')
-    Film.create("name"=> film.xpath('td[1]').text, "developer"=>film.xpath('td[2]').text, "dilution"=>film.xpath('td[3]').text, "ISO"=>film.xpath('td[4]').text, "time"=>film.xpath('td[5]').text.to_i, "temp"=>film.xpath('td[8]').text )
+    Film.create("name"=> film.xpath('td[1]').text, "developer"=>film.xpath('td[2]').text, "dilution"=>film.xpath('td[3]').text, "iso"=>film.xpath('td[4]').text, "time"=>film.xpath('td[5]').text.to_i, "temp"=>film.xpath('td[8]').text )
     puts film.xpath('td[1]').text
   end
 
