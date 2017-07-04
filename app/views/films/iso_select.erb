@@ -1,18 +1,43 @@
-<%= form_tag("/index", method: "post") do %>
-    <select name="iso">
-      <% array_of_shit = [] %>
-      <%= @films.each do |f| %>
-          <% if !array_of_shit.include?(f.iso.to_s) %>
-              <% array_of_shit.push(f.iso.to_s)%>
-              <option><%= f.iso.to_s %> </option>
-              <% puts f.iso.to_s %>
-              <% puts f.to_s %>
+
+
+
+<div class="vertical-center">
+  <div class="container">
+    <div class="row">
+
+      <div class=" text-center  col-xs-6 col-xs-offset-3">
+        <div class="card animated fadeInUp">
+          <h1 class="text-center">Select the ISO you shot the film at</h1>
+
+          <%= form_tag("/index", method: "post", class: "form-group") do %>
+              <select  class="form form-group form-control" name="iso">
+                <% array_of_shit = [] %>
+                <%= @films.each do |f| %>
+                    <% if !array_of_shit.include?(f.iso.to_s) %>
+                        <% array_of_shit.push(f.iso.to_s)%>
+                        <option><%= f.iso.to_s %> </option>
+                        <% puts f.iso.to_s %>
+                        <% puts f.to_s %>
+                    <% end %>
+                <% end %>
+              </select>
+              <%= hidden_field_tag(:name, @films.first.name) %>
+              <%= hidden_field_tag(:dev, @films.first.developer) %>
+              <br>
+              <%= submit_tag("Submit", class: "btn btn-primary") %>
           <% end %>
-      <% end %>
-    </select>
-    <%= hidden_field_tag(:name, @films.first.name) %>
-    <%= hidden_field_tag(:dev, @films.first.developer) %>
-    <br>
-    <%= submit_tag("Submit") %>
-<% end %>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
 

@@ -1,15 +1,42 @@
-<%= form_tag("/iso_select", method: "post") do %>
-    <select name="dev">
-      <% array_of_shit = [] %>
-      <%= @films.each do |f| %>
-          <% if !array_of_shit.include?(f.developer) %>
-              <% array_of_shit.push(f.developer)%>
-              <option><%= f.developer %> </option>
+
+
+
+
+<div class="vertical-center">
+  <div class="container">
+    <div class="row">
+
+      <div class=" text-center  col-xs-6 col-xs-offset-3">
+        <div class="card animated fadeInUp">
+          <%= form_tag("/iso_select", method: "post", class: "form-group") do %>
+              <h1 class="">Select A Developer</h1>
+              <select  class="form form-group form-control" name="dev">
+                <% array_of_shit = [] %>
+                <%= @films.each do |f| %>
+                    <% if !array_of_shit.include?(f.developer) %>
+                        <% array_of_shit.push(f.developer)%>
+                        <option class="text-center"><%= f.developer %> </option>
+                    <% end %>
+                <% end %>
+              </select>
+              <br>
+              <%= hidden_field_tag(:name, @films.first.name) %>
+              <%= submit_tag('name', class: "btn btn-primary") %>
           <% end %>
-      <% end %>
-    </select>
-    <br>
-    <%= hidden_field_tag(:name, @films.first.name) %>
-    <%= submit_tag('name') %>
-<% end %>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
 

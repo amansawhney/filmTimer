@@ -7,7 +7,7 @@
           <%= form_tag("/dev_select", method: "post", class: "form-group") do %>
               <h1 class="">Select A Film</h1>
               <div class="dropdown" class="dropdown-menu">
-              <select name="name">
+                <select  class="form form-group form-control" name="name">
                 <% array_of_shit = [''] %>
                 <%= @films.each do |f| %>
                     <% if !array_of_shit.include?(f.name) %>
