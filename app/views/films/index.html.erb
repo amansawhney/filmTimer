@@ -3,6 +3,7 @@
     <div class="row">
       <div class=" text-center  col-xs-6 col-xs-offset-3">
         <div class="card animated fadeInUp">
+          <h1 id="title" class="animated bounceIn"></h1>
           <h1 id="countdown"></h1>
         </div>
       </div>
@@ -17,10 +18,12 @@
             stepVar += 1;
 
             countdown("countdown", <%= @films.first.time%>, 0);
+            title("title", "Developer");
         } else if (stepVar == 2) {
             stepVar += 1;
 
             countdown("countdown", 1, 0);
+            title("title", "Stop Bath")
         } else if (stepVar == 3) {
             stepVar += 1;
 
@@ -35,6 +38,12 @@
             countdown("countdown", 1, 0);
         }
     }
+    function title(elementName, title) {
+        element = document.getElementById( elementName );
+        element.style.webkitAnimationName = 'bounceIn';
+
+        element.innerHTML = title;
+    }
     function countdown( elementName, minutes, seconds )
     {
         var element, endTime, hours, mins, msLeft, time;
@@ -47,10 +56,12 @@
         function updateTimer()
         {
             msLeft = endTime - (+new Date);
+
             if ( msLeft < 1000 ) {
                 element.innerHTML = "countdown's over!";
                 runTimer()
             } else {
+
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
                 mins = time.getUTCMinutes();
