@@ -28,14 +28,20 @@
             stepVar += 1;
 
             countdown("countdown", 8, 0);
+            title("title", "Fixer")
+
         } else if (stepVar == 4) {
             stepVar += 1;
 
             countdown("countdown", 10, 0);
+            title("title", "Rinse")
+
         } else if (stepVar == 5) {
             stepVar += 1;
 
             countdown("countdown", 1, 0);
+            title("title", "Photoflo")
+
         }
     }
     function title(elementName, title) {
@@ -57,24 +63,33 @@
 
         function updateTimer()
         {
-            if (agiatationTime > 0) {
-                console.log(agiatationTime );
+            if (stepVar == 2 || stepVar == 4) {
+                if (agiatationTime > 0) {
+                    console.log(agiatationTime );
 
+                    element.style.color = "Red";
+                    agiatationTime -= 1;
+                    console.log(agiatationTime );
+                    if (agiatationTime == 0) {
+                        agiatationTime -= 30;
+                    }
+                }
+                else {
+                    console.log(agiatationTime );
+                    element.style.color = "Black";
+                    agiatationTime+= 1;
+                    if (agiatationTime == 0) {
+                        agiatationTime += 30;
+                    }
+                }
+            } else if(stepVar == 3) {
                 element.style.color = "Red";
-                agiatationTime -= 1;
-                console.log(agiatationTime );
-                if (agiatationTime == 0) {
-                    agiatationTime -= 30;
-                }
-            }
-            else {
-                console.log(agiatationTime );
+                agiatationTime = 15
+            } else {
                 element.style.color = "Black";
-                agiatationTime+= 1;
-                if (agiatationTime == 0) {
-                    agiatationTime += 30;
-                }
+                agiatationTime = 15
             }
+
             msLeft = endTime - (+new Date);
 
             if ( msLeft < 1000 ) {
