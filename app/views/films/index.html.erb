@@ -57,6 +57,24 @@
 
         function updateTimer()
         {
+            if (agiatationTime > 0) {
+                console.log(agiatationTime );
+
+                element.style.color = "Red";
+                agiatationTime -= 1;
+                console.log(agiatationTime );
+                if (agiatationTime == 0) {
+                    agiatationTime -= 30;
+                }
+            }
+            else {
+                console.log(agiatationTime );
+                element.style.color = "Black";
+                agiatationTime+= 1;
+                if (agiatationTime == 0) {
+                    agiatationTime += 30;
+                }
+            }
             msLeft = endTime - (+new Date);
 
             if ( msLeft < 1000 ) {
@@ -71,24 +89,9 @@
                 mins = time.getUTCMinutes();
                 element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
                 setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-                if (agiatationTime > 0) {
-                    console.log(agiatationTime );
 
-                    element.style.color = "Red";
-                    agiatationTime -= 1;
-                    console.log(agiatationTime );
-                    if (agiatationTime == 0) {
-                        agiatationTime -= 30;
-                    }
-                }
-                else {
-                    console.log(agiatationTime );
-                    element.style.color = "Black";
-                    agiatationTime+= 1;
-                    if (agiatationTime == 0) {
-                        agiatationTime += 30;
-                    }
-                }
+
+
             }
         }
         element = document.getElementById( elementName );
