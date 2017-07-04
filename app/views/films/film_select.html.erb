@@ -1,15 +1,37 @@
-<%= form_tag("/dev_select", method: "post") do %>
-    <h1>Select A Film</h1>
-  <select name="name">
-    <% array_of_shit = [] %>
-    <%= @films.each do |f| %>
-        <% if !array_of_shit.include?(f.name) %>
-          <% array_of_shit.push(f.name)%>
-          <option><%= f.name %> </option>
-        <% end %>
-    <% end %>
-    </select>
-  <br>
-    <%= submit_tag("dev_select") %>
-<% end %>
+<div class="vertical-center">
+  <div class="container">
+    <div class="row">
+
+      <div class=" text-center  col-xs-4 col-xs-offset-4">
+        <div class="card animated fadeInUp">
+          <%= form_tag("/dev_select", method: "post", class: "form-group") do %>
+              <h1 class="">Select A Film</h1>
+              <div class="dropdown" class="dropdown-menu">
+              <select name="name">
+                <% array_of_shit = [''] %>
+                <%= @films.each do |f| %>
+                    <% if !array_of_shit.include?(f.name) %>
+                        <% array_of_shit.push(f.name)%>
+                        <option class="form-control"><%= f.name %> </option>
+                    <% end %>
+                <% end %>
+              </select>
+              </div>
+              <br>
+              <%= submit_tag("dev_select", class: "btn btn-primary") %>
+          <% end %>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
 

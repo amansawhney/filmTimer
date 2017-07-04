@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "animate.css": "^3.5.2",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -7,6 +8,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.2",
+    "bootstrap-material-design": "^0.5.10",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.6",
     "compression-webpack-plugin": "^0.4.0",
