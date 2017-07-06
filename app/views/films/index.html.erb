@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<script>
+<%= javascript_tag do %>
     var stepVar = 1.0;
     function runTimer() {
         if (stepVar == 1) {
@@ -128,4 +128,4 @@
     runTimer()
 
 
-</script>
+<% end %>
