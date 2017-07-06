@@ -9,7 +9,7 @@
               <div class="dropdown" class="dropdown-menu">
                 <select  class="form form-group form-control" name="name">
                 <% array_of_shit = [''] %>
-                <%= @films.each do |f| %>
+                <%= @films.find_each do |f| %>
                     <% if !array_of_shit.include?(f.name) %>
                         <% array_of_shit.push(f.name)%>
                         <option class="form-control"><%= f.name %> </option>

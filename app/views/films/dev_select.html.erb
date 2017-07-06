@@ -12,7 +12,7 @@
               <h1 class="">Select A Developer</h1>
               <select  class="form form-group form-control" name="dev">
                 <% array_of_shit = [] %>
-                <%= @films.each do |f| %>
+                <%= @films.find_each do |f| %>
                     <% if !array_of_shit.include?(f.developer) %>
                         <% array_of_shit.push(f.developer)%>
                         <option class="text-center"><%= f.developer %> </option>

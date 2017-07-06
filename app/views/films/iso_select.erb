@@ -12,7 +12,7 @@
           <%= form_tag("/index", method: "post", class: "form-group") do %>
               <select  class="form form-group form-control" name="iso">
                 <% array_of_shit = [] %>
-                <%= @films.each do |f| %>
+                <%= @films.find_each do |f| %>
                     <% if !array_of_shit.include?(f.iso.to_s) %>
                         <% array_of_shit.push(f.iso.to_s)%>
                         <option><%= f.iso.to_s %> </option>
