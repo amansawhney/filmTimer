@@ -8,12 +8,9 @@
       <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
         <div class="card animated">
           <h1 class="">Select A Film</h1>
-          <div class="dropdown" class="dropdown-menu">
-            <select  class="form form-group form-control" name="name">
+            <select  class="" name="name">
               <option class="form-control"><%= cookies[:name] %> </option>
             </select>
-          </div>
-          <br>
           <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
         </div>
       </div>
@@ -21,7 +18,7 @@
         <div class="card animated fadeInUp _2">
           <%= form_tag("/iso_select", method: "post", class: "form-group") do %>
               <h1 class="">Select A Developer</h1>
-              <select  class="form form-group form-control" name="dev">
+              <select  class="" name="dev">
                 <% array_of_shit = [] %>
                 <%= @films.find_each do |f| %>
                     <% if !array_of_shit.include?(f.developer) %>
@@ -30,7 +27,6 @@
                     <% end %>
                 <% end %>
               </select>
-              <br>
               <%= submit_tag('Next', class: "btn btn-primary") %>
           <% end %>
         </div>
@@ -38,12 +34,9 @@
       <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
         <div class="card animated hideME">
           <h1 class="text-center">Select the ISO you shot the film at</h1>
-          <div class="dropdown" class="dropdown-menu">
             <select  class="form form-group form-control" name="name">
               <option class="form-control"><%= " " %> </option>
             </select>
-          </div>
-          <br>
           <%= submit_tag("Submit", class: "btn btn-primary", disabled: true) %>
         </div>
       </div>
