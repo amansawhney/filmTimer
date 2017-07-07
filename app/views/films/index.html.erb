@@ -52,34 +52,50 @@
 
 
 <%= javascript_include_tag('application') %>
-<%= javascript_tag do %>
+<script>
     var stepVar = 0;
+    var idFrame;
     function button(){
-        stepVar += 1
+        stepVar += 1;
         var btn = document.getElementById("btn");
-            if (stepVar == 1) {
-            btn.innerHTML = "Continue"
+        if (stepVar == 1) {
+            btn.innerHTML = "Continue";
             countdown("countdown", <%= @films.first.time%>, 0);
-            move("dev",  <%= @films.first.time%> * 600.0);
+            move("dev", <%= @films.first.time%> * 600.0);
             title("title", "Developer");
         } else if (stepVar == 2) {
             resetCounter();
             countdown("countdown", 1, 0);
-    move("stop",  1 * 600.0);
+            move("stop",  1 * 600.0);
         } else if (stepVar == 3) {
             resetCounter();
             countdown("countdown", 8, 0);
-    move("fix",  8 * 600.0);
+            move("fix",  8 * 600.0);
         } else if (stepVar == 4) {
             resetCounter();
             countdown("countdown", 10, 0);
-    move("was",  10 * 600.0);
-    btn.innerHTML = "END";
-         }else {
+            move("wash",  10 * 600.0);
+            btn.innerHTML = "END";
+        }else {
             resetCounter();
             document.getElementById("countdown").innerHTML="0:00";
+        }
 
-         }
+        function move(idString, interval) {
+            var elem = document.getElementById(idString);
+            var width = 0;
+            idFrame = setInterval(frame, interval/3);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width += 1/3;
+                    elem.style.width = width + '%';
+                    elem.innerHTML = width * 1 + '%';
+                }
+            }
+        }
+
     }
     function resetCounter() {
         var old = document.getElementById("countdown");
@@ -89,27 +105,5 @@
         div.appendChild(timer);
         old.remove();
     }
-
-
-    function move(idString, interval) {
-    var elem = document.getElementById(idString);
-    var width = 0;
-    var id = setInterval(frame, interval/3);
-    function frame() {
-    if (width >= 100) {
-    clearInterval(id);
-    } else {
-    width += 1/3;
-    elem.style.width = width + '%';
-    elem.innerHTML = width * 1 + '%';
-    }
-    }
-    }
-
-
-
-
-
-
-<% end %>
+</script>
 

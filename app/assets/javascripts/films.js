@@ -21,7 +21,7 @@ function countdown( elementName, minutes, seconds )
 
     function updateTimer()
     {
-        if (stepVar == 2 || stepVar == 4) {
+        if (stepVar == 1 || stepVar == 3) {
             if (agiatationTime > 0) {
                 console.log(agiatationTime );
 
@@ -43,7 +43,7 @@ function countdown( elementName, minutes, seconds )
                     agiatationTime += 30;
                 }
             }
-        } else if(stepVar == 3) {
+        } else if(stepVar == 2) {
             element.style.color = "Red";
             audio.play();
             agiatationTime = 15
@@ -57,7 +57,7 @@ function countdown( elementName, minutes, seconds )
 
         if ( msLeft < 1000 ) {
             element.innerHTML = "00:00";
-            button()
+
         } else {
 
 

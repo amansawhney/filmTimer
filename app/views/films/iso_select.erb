@@ -1,45 +1,45 @@
 
 <div class=" text-center col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
-        <div class="card animated ">
-          <h1 class="">Select A Film</h1>
-            <select  class="" name="name">
-              <option class="form-control"><%= cookies[:name] %> </option>
-            </select>
-          <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
-        </div>
-      </div>
+  <div class="card animated ">
+    <h1 class="">Select A Film</h1>
+    <select  class="" name="name">
+      <option class="form-control"><%= cookies[:name] %> </option>
+    </select>
+    <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
+  </div>
+</div>
 <br>
 <div class=" text-center col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
-        <div class="card animated">
-          <h1 class="">Select A Developer</h1>
-            <select  class="" name="name">
-              <option class="form-control"><%= cookies[:dev] %> </option>
-            </select>
-          <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
-        </div>
-      </div>
+  <div class="card animated">
+    <h1 class="">Select A Developer</h1>
+    <select  class="" name="name">
+      <option class="form-control"><%= cookies[:dev] %> </option>
+    </select>
+    <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
+  </div>
+</div>
 
-      <div class=" text-center col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
-        <div class="card animated fadeInUp">
+<div class=" text-center col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
+  <div class="card animated fadeInUp">
 
-          <h1 class="text-center">Select the ISO you shot the film at</h1>
+    <h1 class="text-center">Select the ISO you shot the film at</h1>
 
-          <%= form_tag("/index", method: "post", class: "form-group") do %>
-              <select  class="" name="iso">
-                <% array_of_shit = [] %>
-                <%= @films.find_each do |f| %>
-                    <% if !array_of_shit.include?(f.iso.to_s) %>
-                        <% array_of_shit.push(f.iso.to_s)%>
-                        <option><%= f.iso.to_s %> </option>
-                        <% puts f.iso.to_s %>
-                        <% puts f.to_s %>
-                    <% end %>
-                <% end %>
-              </select>
-              <%= submit_tag("Submit", class: "btn btn-primary") %>
+    <%= form_tag("/index", method: "post", class: "form-group") do %>
+        <select  class="" name="iso">
+          <% array_of_shit = [] %>
+          <%= @films.find_each do |f| %>
+              <% if !array_of_shit.include?(f.iso.to_s) %>
+                  <% array_of_shit.push(f.iso.to_s)%>
+                  <option><%= f.iso.to_s %> </option>
+                  <% puts f.iso.to_s %>
+                  <% puts f.to_s %>
+              <% end %>
           <% end %>
-        </div>
-      </div>
+        </select>
+        <%= submit_tag("Submit", class: "btn btn-primary") %>
+    <% end %>
+  </div>
+</div>
 
 
 
