@@ -2,17 +2,16 @@
   h1 {
     font-size: 10rem;
   }
-    .film-btn {
-      font-size: 3rem;
-
-     }
+  .film-btn {
+    font-size: 3rem;
+  }
 </style>
 
 <div class=" text-center col-sm-10 col-sm-offset-1 col-xs-12 ">
   <div class="card animated fadeInUp">
-    <div class="col-sm-5">
+    <div id="countdownHolder" class="col-sm-5">
       <h1 id="countdown"></h1>
-      <button class="btn film-btn btn-primary">Start</button>
+      <button  id="btn" onclick="button()" class="btn film-btn btn-primary">Start</button>
     </div>
     <div class = "col-sm-5">
       <label>Developer</label>
@@ -52,41 +51,44 @@
 
 <%= javascript_include_tag('application') %>
 <%= javascript_tag do %>
-    var stepVar = 1.0;
-    function runTimer() {
-    if (stepVar == 1) {
-    stepVar += 1;
+    var stepVar = 0;
+    function button(){
+        stepVar += 1
+        var btn = document.getElementById("btn");
+            if (stepVar == 1) {
+            btn.innerHTML = "Countinue"
+            countdown("countdown", <%= @films.first.time%>, 0);
+            title("title", "Developer");
+        } else if (stepVar == 2) {
+            resetCounter();
+            countdown("countdown", 1, 0);
+        } else if (stepVar == 3) {
+            resetCounter();
+            countdown("countdown", 8, 0);
+        } else if (stepVar == 4) {
+            resetCounter();
+            countdown("countdown", 10, 0);
+        } else if (stepVar == 5) {
+            resetCounter();
+            btn.innerHTML = "End"
+            countdown("countdown", 1, 0);
+         }else {
+            resetCounter();
+            document.getElementById("countdown").innerHTML="0:00";
 
-    countdown("countdown", <%= @films.first.time%>, 0);
-    title("title", "Developer");
-    } else if (stepVar == 2) {
-    stepVar += 1;
-
-    countdown("countdown", 1, 0);
-    title("title", "Stop Bath")
-    } else if (stepVar == 3) {
-    stepVar += 1;
-
-    countdown("countdown", 8, 0);
-    title("title", "Fixer")
-
-    } else if (stepVar == 4) {
-    stepVar += 1;
-
-    countdown("countdown", 10, 0);
-    title("title", "Rinse")
-
-    } else if (stepVar == 5) {
-    stepVar += 1;
-
-    countdown("countdown", 1, 0);
-    title("title", "Photoflo")
-
+         }
     }
+    function resetCounter() {
+        var old = document.getElementById("countdown");
+        var timer = document.createElement("H1");
+        timer.id = "countdown";
+        var div = document.getElementById("countdownHolder");
+        div.appendChild(timer);
+        old.remove();
     }
 
 
-    runTimer()
+
 
 
 <% end %>
