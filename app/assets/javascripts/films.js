@@ -56,8 +56,8 @@ function countdown( elementName, minutes, seconds )
         msLeft = endTime - (+new Date);
 
         if ( msLeft < 1000 ) {
-            element.innerHTML = "countdown's over!";
-            runTimer()
+            element.innerHTML = "00:00";
+            button()
         } else {
 
 
