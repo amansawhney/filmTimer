@@ -21,8 +21,6 @@
                     <% end %>
                 <% end %>
               </select>
-              <%= hidden_field_tag(:name, @films.first.name) %>
-              <%= hidden_field_tag(:dev, @films.first.developer) %>
               <br>
               <%= submit_tag("Submit", class: "btn btn-primary") %>
           <% end %>
