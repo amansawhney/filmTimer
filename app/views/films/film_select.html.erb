@@ -1,47 +1,25 @@
-<div class="vertical-center">
-  <div class="container">
-    <div class="row">
-      <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
-        <div class="card animated fadeInUp">
-          <%= form_tag("/dev_select", method: "post", class: "form-group") do %>
-              <h1 class="">Select A Film</h1>
-                <select  class="" name="name">
-                <% array_of_shit = [''] %>
-                <%= @films.find_each do |f| %>
-                    <% if !array_of_shit.include?(f.name) %>
-                        <% array_of_shit.push(f.name)%>
-                        <option class="form-control"><%= f.name %> </option>
-                    <% end %>
-                <% end %>
-              </select>
-              <%= submit_tag("Next", class: "btn btn-primary") %>
+
+<div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
+  <div class="card animated fadeInUp">
+    <%= form_tag("/dev_select", method: "post", class: "form-group") do %>
+        <h1 class="">Select A Film</h1>
+        <select  class="" name="name">
+          <% array_of_shit = [''] %>
+          <%= @films.find_each do |f| %>
+              <% if !array_of_shit.include?(f.name) %>
+                  <% array_of_shit.push(f.name)%>
+                  <option class="form-control"><%= f.name %> </option>
+              <% end %>
           <% end %>
-        </div>
-      </div>
-      <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
-        <div class="card animated hideME">
-          <h1 class="">Select A Developer</h1>
-            <select  class="form-control" name="name">
-              <option class=""><%= " " %> </option>
-            </select>
-          <%= submit_tag("Next", class: "btn btn-primary", disabled: true) %>
-        </div>
-      </div>
-      <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
-        <div class="card animated hideME">
-          <h1 class="text-center">Select the ISO you shot the film at</h1>
-            <select  class="form form-group form-control" name="name">
-              <option class="form-control"><%= " " %> </option>
-            </select>
-          <%= submit_tag("Submit", class: "btn btn-primary", disabled: true) %>
-        </div>
-      </div>
-
-
-    </div>
-
+        </select>
+        <%= submit_tag("Next", class: "btn btn-primary") %>
+    <% end %>
   </div>
 </div>
+<%=  render partial: 'emptyCard' %>
+<%=  render partial: 'emptyCard' %>
+
+
 
 
 

@@ -1,52 +1,50 @@
-<div class="vertical-center">
-  <div class="container">
-    <div class="row">
-      <div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
-        <div class="card animated fadeInUp">
-          <h1 id="title" class="animated bounceIn"></h1>
-          <h1 id="countdown"></h1>
-          <audio id="audio">
-            <source src="https://freesound.org/data/previews/219/219269_170215-lq.mp3" type="audio/mp3">
-            Your browser does not support HTML5 audio.
-          </audio>
-        </div>
-      </div>
-    </div>
+<div class=" text-center col-md-6 col-md-offset-3 col-xs-12 ">
+  <div class="card animated fadeInUp">
+    <h1 id="title" class="animated bounceIn"></h1>
+    <h1 id="countdown"></h1>
+    <audio id="audio">
+      <source src="https://freesound.org/data/previews/219/219269_170215-lq.mp3" type="audio/mp3">
+      Your browser does not support HTML5 audio.
+    </audio>
   </div>
 </div>
+
+
+
+
 <%= javascript_include_tag('application') %>
 <%= javascript_tag do %>
     var stepVar = 1.0;
     function runTimer() {
-        if (stepVar == 1) {
-            stepVar += 1;
+    if (stepVar == 1) {
+    stepVar += 1;
 
-            countdown("countdown", <%= @films.first.time%>, 0);
-            title("title", "Developer");
-        } else if (stepVar == 2) {
-            stepVar += 1;
+    countdown("countdown", <%= @films.first.time%>, 0);
+    title("title", "Developer");
+    } else if (stepVar == 2) {
+    stepVar += 1;
 
-            countdown("countdown", 1, 0);
-            title("title", "Stop Bath")
-        } else if (stepVar == 3) {
-            stepVar += 1;
+    countdown("countdown", 1, 0);
+    title("title", "Stop Bath")
+    } else if (stepVar == 3) {
+    stepVar += 1;
 
-            countdown("countdown", 8, 0);
-            title("title", "Fixer")
+    countdown("countdown", 8, 0);
+    title("title", "Fixer")
 
-        } else if (stepVar == 4) {
-            stepVar += 1;
+    } else if (stepVar == 4) {
+    stepVar += 1;
 
-            countdown("countdown", 10, 0);
-            title("title", "Rinse")
+    countdown("countdown", 10, 0);
+    title("title", "Rinse")
 
-        } else if (stepVar == 5) {
-            stepVar += 1;
+    } else if (stepVar == 5) {
+    stepVar += 1;
 
-            countdown("countdown", 1, 0);
-            title("title", "Photoflo")
+    countdown("countdown", 1, 0);
+    title("title", "Photoflo")
 
-        }
+    }
     }
 
 
